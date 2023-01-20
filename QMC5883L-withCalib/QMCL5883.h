@@ -172,7 +172,7 @@ typedef struct{
   *@param   ymin  minimum Y axis value(negative -> - )
   *@param   zmax  maximum Z axis value(positivie -> +)
   *@param   zmin  minimum Z axis value(negative -> - )
-  *@retval  None  *//
+  *@retval  None  */
  void calibrating_init(QMC5883L *dev,int16_t xmax,int16_t xmin,int16_t ymax ,int16_t ymin,int16_t zmax ,int16_t zmin);
 
  /*@param  Filt *filt struct ptr
