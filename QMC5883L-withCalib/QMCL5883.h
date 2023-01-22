@@ -10,8 +10,8 @@
 
 #include "stm32f4xx_hal.h"
 extern I2C_HandleTypeDef hi2c1;
-#define NumPoints 5
 
+#define NumPoints 3
 
 #define R_Device_address   (0x1A)
 
@@ -107,8 +107,6 @@ typedef struct{
 
     uint8_t rx_buffer[6];
 
-    int16_t QMCL_Axis_clb[3];
-
 	float heading;
 
 	float scale[3];
@@ -168,11 +166,11 @@ typedef struct{
  /*
   * @param  QMC5883L *ptr for reach the struct variables
   *@param   xmax  maximum X axis value(positivie -> +)
-  *@param   xmin  minimum X axis value(positivie -> +)
+  *@param   xmin  minimum X axis value(negative -> - )
   *@param   ymax  maximum Y axis value(positivie -> +)
-  *@param   ymin  minimum Y axis value(positivie -> +)
+  *@param   ymin  minimum Y axis value(negative -> - )
   *@param   zmax  maximum Z axis value(positivie -> +)
-  *@param   zmin  minimum Z axis value(positivie -> +)
+  *@param   zmin  minimum Z axis value(negative -> - )
   *@retval  None  */
  void calibrating_init(QMC5883L *dev,int16_t xmax,int16_t xmin,int16_t ymax ,int16_t ymin,int16_t zmax ,int16_t zmin);
 
