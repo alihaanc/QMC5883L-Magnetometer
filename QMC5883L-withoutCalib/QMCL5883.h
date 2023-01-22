@@ -10,7 +10,7 @@
 
 #include "stm32f4xx_hal.h"
 extern I2C_HandleTypeDef hi2c1;
-#define NumPoints 20
+#define NumPoints 5
 
 #define R_Device_address   (0x1A)
 

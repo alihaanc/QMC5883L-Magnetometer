@@ -226,7 +226,7 @@ void Filter_init(Filt_t *filt)
 void filter_update(Filt_t *filt, int16_t input){
 
 
-    filt->filt_head = filt->filt_head % NumPoints;
+   /* filt->filt_head = filt->filt_head % NumPoints;
 
 
     filt->buffer_t[filt->filt_head] = input;
@@ -250,17 +250,29 @@ void filter_update(Filt_t *filt, int16_t input){
 
     	filt->total =0;
 
-    }
+    }*/
+/*More effective algorithm*/
+
+filt->total =  filt->total + input - filt->buffer_t[filt->filt_head];
 
 
+filt->output_f =(float)( filt->total /NumPoints);
 
+filt->buffer_t[filt->filt_head] = input;
+
+filt->filt_head++;
+
+if (filt->filt_head == NumPoints){
+
+	filt->filt_head= 0;
+
+}
 
 
 
 
 
 }
-
 
 
 
